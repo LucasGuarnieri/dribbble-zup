@@ -1,0 +1,167 @@
+@import './variables'
+@import './third_party/normalize'
+
+
+*, *::before, *::after
+  box-sizing: border-box;
+
+body
+  +font-size(16)
+  background-color: $light_gray
+  font-family: Arial, sans-serif
+
+.main-container
+  @extend %flex
+  justify-content: center
+
+
+////
+// Header of page
+////
+  
+.header
+  @extend %flex
+  background-color: $gray
+  justify-content: center
+  width: 100vw
+  
+  .header-content
+    @extend %flex
+    justify-content: space-between
+    max-width: $bp_large
+    padding: 20px 10px
+    width: 100%
+
+    @media screen and (max-width: $bp_xsmall)
+      justify-content: center
+
+
+    h1
+      color: $white
+      margin: 0
+
+.search-bar
+  input
+    +font-size(13)
+    border: none
+    border-radius: 4px
+    padding: 5px
+    width: 190px
+    
+    @media screen and (max-width: $bp_xsmall)
+      width: 100%
+      box-sizing: border-box
+
+  @media screen and (max-width: $bp_xsmall)
+    margin-top: 15px
+    width: 100%
+
+
+////
+// Content of page
+////
+.content
+  @extend %flex
+  justify-content: center
+  max-width: $bp_large
+  width: 100%
+
+.shot-list
+  @extend %flex
+  justify-content: center
+  width: 100%
+  
+  .shot-list-item
+    background-color: $white
+    border-radius: 4px
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.07)
+    cursor: pointer
+    margin: 20px 10px
+    padding: 10px
+    position: relative
+
+    &:hover
+      .shot-list-description
+        opacity: 1      
+
+  .shot-list-description
+    +font-size(13)
+    background: $white 
+    border-radius: 4px
+    height: 100%
+    left: 0
+    opacity: 0
+    overflow: hidden
+    padding: 20px
+    position: absolute
+    top: 0
+    transition: opacity 200ms ease-in-out
+    width: 100%
+
+    h4
+      margin: 0 0 10px 0
+    p
+      max-height: 60px
+      overflow: hidden
+
+  img
+    max-width: 100%
+
+
+.btn-load-more
+  +font-size(18)
+  background: $blue
+  border: 0
+  border-radius: 4px
+  color: $white
+  cursor: pointer
+  margin: 20px 0
+  padding: 13px 8px
+  text-align: center
+  width: calc(100% - 20px)
+
+  &:hover
+    background: lighten($blue, 10)
+
+  &:disabled
+    background: #ccc
+    color: $gray
+    cursor: progress
+
+////
+// Shot sizes
+////
+
+.shot-sizes
+  @extend %flex
+  justify-content: flex-end
+  max-width: $bp-large
+  padding: 0 10px
+  width: 100%
+
+  @media screen and (max-width: $bp_xsmall)
+    justify-content: center
+
+  button
+    +font-size(14)
+    background: transparent
+    border: 1px solid $blue
+    color: $blue
+    cursor: pointer
+    margin: 20px 0 0 0
+    padding: 5px
+    text-transform: lowercase
+    width: 80px
+
+    &.active
+      background: $blue
+      color: $white
+
+    &:first-child
+      border-radius: 4px 0 0 4px
+
+      + button
+        border-radius: 0 4px 4px 0
+
+    &:hover, &:focus 
+      outline: none

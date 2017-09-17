@@ -1,0 +1,37 @@
+////
+// Colors variables
+////
+$white: #ffffff
+$light_gray: #f2f2f2
+$gray: #444444
+$blue: #1e6189
+
+
+////
+// Sizes to breakpoints (media query)
+////
+
+$bp_xsmall: 480px
+$bp_small: 768px
+$bp_medium: 992px
+$bp_large: 1200px
+
+
+////
+// Mixins
+////
+
+=font-size($sizeValue: 16, $parentSizeValue: 16)
+  font-size: $sizeValue + px
+  font-size: ($sizeValue / $parentSizeValue) + rem
+
+
+////
+// Extends
+////
+
+%flex
+  align-items: center
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
