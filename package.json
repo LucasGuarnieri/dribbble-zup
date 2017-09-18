@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "npm install && node server.js"
+    "start": "npm install --unsafe-perm && node server.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
