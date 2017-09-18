@@ -2,7 +2,10 @@
 
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import FontAwesome from 'react-fontawesome'
 import Moment from 'moment'
+
+// Services
 import { dribbbleApi } from '../../services/DribbbleApi'
 
 class ShotDetail extends Component {
@@ -87,8 +90,12 @@ class ShotDetail extends Component {
 
               <div>
                 <div>
-                  <button onClick={() => { this.updateLike() }} className={this.state.liked ? 'btn-like active' : 'btn-like'}>{this.state.liked ? 'like' : 'like?'}</button>
-                  <span>likes: {shot.likes_count}</span>
+                  <button onClick={() => { this.updateLike() }} className={this.state.liked ? 'btn-like active' : 'btn-like'}><FontAwesome name='heart' /> {this.state.liked ? 'like' : 'like?'}</button>
+                  <ul className='shot-social'>
+                    <li><FontAwesome name='eye' />{shot.views_count}</li>
+                    <li><FontAwesome name='comment' />{shot.comments_count}</li>
+                    <li><FontAwesome name='heart' />{shot.likes_count}</li>
+                  </ul>
                 </div>
 
                 <div>

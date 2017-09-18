@@ -3,8 +3,12 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+
+// Custom Components
 import SearchBar from './search_bar'
 import ShotList from './shot_list'
+
+// Services
 import { dribbbleApi } from '../../services/DribbbleApi'
 
 /**

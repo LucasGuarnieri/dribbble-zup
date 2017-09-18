@@ -113,6 +113,21 @@ body
   img
     max-width: 100%
 
+.shot-social
+  float: right
+  list-style: none
+  margin: 5px 0 0 0
+  padding: 0
+
+  li
+    +font-size(13)
+    color: $gray
+    display: inline-block
+    margin-left: 8px
+    vertical-align: middle
+
+    .fa
+      margin-right: 3px
 
 .btn-load-more
   +font-size(18)
@@ -182,6 +197,10 @@ body
   margin: 20px 0
   padding-bottom: 15px
 
+  @media screen and (max-width: $bp-small)
+    padding: 0 10px 15px 10px
+    width: 100%
+
   h2
     margin: 0
 
@@ -194,8 +213,11 @@ body
   @extend %flex
   align-items: flex-start;
   justify-content: space-between
-  width: $bp-small
+  max-width: $bp-small
   
+  @media screen and (max-width: $bp-small)
+    padding: 0 10px
+
   .tag-name
     +font-size(13)
     border: 1px solid lighten($blue, 20)
@@ -215,12 +237,17 @@ body
 
   > div
     width: 50%
+    
 
     &:first-child
       padding-right: 10px
-
+      
       & + div
         padding-left: 10px
+
+    @media screen and (max-width: $bp-xsmall)
+      padding: 10px 
+      width: 100%
 
 .shot-image  
   border-radius: 4px
@@ -229,7 +256,7 @@ body
 
   img
     display: block
-    max-width: 100%
+    width: 100%
 
 .btn-like
   +font-size(17)
@@ -244,7 +271,5 @@ body
   &:hover, .active
     background: darken($pink, 20)
 
-  & + span
-    +font-size(13)
-    float: right;
+  & + .shot-social
     margin-top: 8px;
