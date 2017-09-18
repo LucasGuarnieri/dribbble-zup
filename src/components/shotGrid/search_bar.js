@@ -2,6 +2,9 @@
 
 import React, { Component } from 'react'
 
+/**
+* Search bar of shot list
+**/
 class SearchBar extends Component {
   constructor (props) {
     super(props)

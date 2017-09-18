@@ -8,11 +8,13 @@
 body
   +font-size(16)
   background-color: $light_gray
+  color: $gray
   font-family: Arial, sans-serif
 
-.main-container
+.main-container, .main-container > div
   @extend %flex
   justify-content: center
+  width: 100%
 
 
 ////
@@ -39,6 +41,9 @@ body
     h1
       color: $white
       margin: 0
+      a
+        color: $white
+        text-decoration: none
 
 .search-bar
   input
@@ -75,6 +80,7 @@ body
     background-color: $white
     border-radius: 4px
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.07)
+    color: $blue
     cursor: pointer
     margin: 20px 10px
     padding: 10px
@@ -165,3 +171,80 @@ body
 
     &:hover, &:focus 
       outline: none
+
+////
+// Detail of Shot
+////
+
+.shot-header
+  border-bottom: 1px solid $gray
+  color: $gray
+  margin: 20px 0
+  padding-bottom: 15px
+
+  h2
+    margin: 0
+
+  em
+    color: $blue
+    font-style: normal
+    font-weight: 600
+
+.shot-content
+  @extend %flex
+  align-items: flex-start;
+  justify-content: space-between
+  width: $bp-small
+  
+  .tag-name
+    +font-size(13)
+    border: 1px solid lighten($blue, 20)
+    color: lighten($blue, 20)
+    cursor: default
+    display: inline-block
+    margin: 0 5px 10px 0
+    padding: 2px 5px
+
+    &:hover
+      background: lighten($blue, 20)
+      color: $white
+
+  a
+    text-decoration: none
+    color: lighten($blue, 20)
+
+  > div
+    width: 50%
+
+    &:first-child
+      padding-right: 10px
+
+      & + div
+        padding-left: 10px
+
+.shot-image  
+  border-radius: 4px
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.07)
+  overflow: hidden
+
+  img
+    display: block
+    max-width: 100%
+
+.btn-like
+  +font-size(17)
+  background: $pink;
+  border: 0;
+  border-radius: 4px;
+  color: $white;
+  cursor: pointer;
+  height: 30px;
+  width: 90px;
+
+  &:hover, .active
+    background: darken($pink, 20)
+
+  & + span
+    +font-size(13)
+    float: right;
+    margin-top: 8px;

@@ -2,25 +2,19 @@
 
 import React from 'react'
 import { render } from 'react-dom'
-import { AppContainer } from 'react-hot-loader'
-import App from './app'
+
+// routing components
+import { BrowserRouter } from 'react-router-dom'
+
+// Custom Components
+import Main from './components/main'
 
 // stylesheets
 import './assets/sass/style.sass'
 
-const renderApp = (NextApp) => {
-  render(
-    <AppContainer>
-      <NextApp />
-    </AppContainer>,
-    document.querySelector('[data-js="app"]')
-  )
-}
-
-renderApp(App)
-
-if (module.hot) {
-  module.hot.accept('./app', () => {
-    renderApp(require('./app').default)
-  })
-}
+render(
+  <BrowserRouter component={Main}>
+    <Main />
+  </BrowserRouter>,
+  document.querySelector('[data-js="app"]')
+)

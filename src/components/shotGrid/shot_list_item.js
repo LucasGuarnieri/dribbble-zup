@@ -1,11 +1,15 @@
 'use strict'
 
 import React from 'react'
+import { Link } from 'react-router-dom'
 import striptags from 'striptags'
 
+/**
+* Item of shot list
+**/
 const ShotListItem = ({shot, sizeImage}) => {
   return (
-    <div className='shot-list-item'>
+    <Link to={`/shot/${shot.id}`} className='shot-list-item'>
       <div className='shot-list-img'>
         <img src={shot.images[sizeImage]} alt={shot.title} title={shot.title} />
       </div>
@@ -13,7 +17,7 @@ const ShotListItem = ({shot, sizeImage}) => {
         <h4>{shot.title}</h4>
         <p>{striptags(shot.description)}</p>
       </div>
-    </div>
+    </Link>
   )
 }
 
